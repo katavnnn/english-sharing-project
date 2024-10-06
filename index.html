@@ -3,16 +3,18 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H43S5DGTDF"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-H43S5DGTDF');
+    gtag('config', 'G-H43S5DGTDF');
 </script>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🪻🪻</title>
+    <link rel="stylesheet" href="ui.css">
     <link rel="icon" type="image/png" href="nm.jpg">
     <style>
         body {
@@ -24,207 +26,6 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-        }
-
-        .container {
-            text-align: center;
-            background-color: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            /* Sắp xếp các nút theo chiều dọc */
-            align-items: center;
-            /* Canh giữa các nút */
-        }
-
-        h1 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .glow-on-hover {
-            width: 320px;
-            /* Tăng độ dài nút */
-            height: 50px;
-            border: none;
-            outline: none;
-            color: #fff;
-            background: #111;
-            cursor: pointer;
-            position: relative;
-            z-index: 0;
-            border-radius: 10px;
-            margin: 10px 0;
-            /* Thêm khoảng cách giữa các nút */
-            text-decoration: none;
-            /* Bỏ gạch chân */
-            display: flex;
-            /* Giúp căn giữa nội dung */
-            justify-content: center;
-            /* Căn giữa nội dung theo chiều ngang */
-            align-items: center;
-            /* Căn giữa nội dung theo chiều dọc */
-            font-family: 'Arial', sans-serif;
-            /* Thay đổi font chữ */
-            font-size: 18px;
-            /* Kích thước font chữ */
-            font-weight: bold;
-            /* Đậm chữ */
-        }
-        .glow-on-hover2 {
-            width: 320px;
-            /* Tăng độ dài nút */
-            height: 50px;
-            border: none;
-            outline: none;
-            color: #fff;
-            background: #ff0000;
-            cursor: pointer;
-            position: relative;
-            z-index: 0;
-            border-radius: 10px;
-            margin: 10px 0;
-            /* Thêm khoảng cách giữa các nút */
-            text-decoration: none;
-            /* Bỏ gạch chân */
-            display: flex;
-            /* Giúp căn giữa nội dung */
-            justify-content: center;
-            /* Căn giữa nội dung theo chiều ngang */
-            align-items: center;
-            /* Căn giữa nội dung theo chiều dọc */
-            font-family: 'Arial', sans-serif;
-            /* Thay đổi font chữ */
-            font-size: 18px;
-            /* Kích thước font chữ */
-            font-weight: bold;
-            /* Đậm chữ */
-        }
-
-        .glow-on-hover:before {
-            content: '';
-            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            background-size: 400%;
-            z-index: -1;
-            filter: blur(5px);
-            width: calc(100% + 4px);
-            height: calc(100% + 4px);
-            animation: glowing 20s linear infinite;
-            opacity: 0;
-            transition: opacity .3s ease-in-out;
-            border-radius: 10px;
-        }
-
-        .glow-on-hover:active {
-            color: #000
-        }
-
-        .glow-on-hover:active:after {
-            background: transparent;
-        }
-
-        .glow-on-hover:hover:before {
-            opacity: 1;
-        }
-
-        .glow-on-hover:after {
-            z-index: -1;
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: #f1b8a7;
-            left: 0;
-            top: 0;
-            border-radius: 10px;
-        }
-
-        .c-button {
-            color: #000;
-            font-weight: 700;
-            font-size: 16px;
-            text-decoration: none;
-            padding: 0.9em 1.6em;
-            cursor: pointer;
-            display: inline-block;
-            vertical-align: middle;
-            position: relative;
-            z-index: 1;
-            margin-top: 10px;
-        }
-
-        .c-button--gooey {
-            color: #06c8d9;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 4px solid #06c8d9;
-            border-radius: 0;
-            position: relative;
-            transition: all 700ms ease;
-        }
-
-        .c-button--gooey .c-button__blobs {
-            height: 100%;
-            filter: url(#goo);
-            overflow: hidden;
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: -3px;
-            right: -1px;
-            z-index: -1;
-        }
-
-        .c-button--gooey .c-button__blobs div {
-            background-color: #06c8d9;
-            width: 34%;
-            height: 100%;
-            border-radius: 100%;
-            position: absolute;
-            transform: scale(1.4) translateY(125%) translateZ(0);
-            transition: all 700ms ease;
-        }
-
-        .c-button--gooey .c-button__blobs div:nth-child(1) {
-            left: -5%;
-        }
-
-        .c-button--gooey .c-button__blobs div:nth-child(2) {
-            left: 30%;
-            transition-delay: 60ms;
-        }
-
-        .c-button--gooey .c-button__blobs div:nth-child(3) {
-            left: 66%;
-            transition-delay: 25ms;
-        }
-
-        .c-button--gooey:hover {
-            color: #fff;
-        }
-
-        .c-button--gooey:hover .c-button__blobs div {
-            transform: scale(1.4) translateY(0) translateZ(0);
-        }
-
-        @keyframes glowing {
-            0% {
-                background-position: 0 0;
-            }
-
-            50% {
-                background-position: 400% 0;
-            }
-
-            100% {
-                background-position: 0 0;
-            }
         }
     </style>
 </head>
@@ -238,18 +39,34 @@
         <a class="glow-on-hover" href="web/subject4.html" target="_blank">KHO READING</a>
         <a class="glow-on-hover" href="web/subject5.html" target="_blank">KHO SPEAKING</a>
         <a class="glow-on-hover" href="web/subject6.html" target="_blank">KHO IELTS WRITING</a>
-        <a class="glow-on-hover2" href="https://poe.com/IELTS-Grading" target="_blank">AI CHẤM WRITING</a>
+        <a class="glow-on-hover2" href="https://poe.com/IELTS-Grading" target="_blank">AI CHẤM WRITING(tham khảo nhe)</a>
         <a class="glow-on-hover" href="web/subject7.html" target="_blank">8 KHÓA CƠ BẢN</a>
         <a class="glow-on-hover" href="web/subject8.html" target="_blank">KHÓA MẤT GỐC CÔ MAI PHƯƠNG</a>
-        <a class="glow-on-hover" href="https://drive.google.com/drive/folders/1VUug2qT0nlxTrW7gSCfyIV05FCci6YXs?usp=drive_link" target="_blank">🪻 TOEIC PREP(3 chặng)</a>
-        
+        <a class="glow-on-hover"
+            href="https://drive.google.com/drive/folders/1VUug2qT0nlxTrW7gSCfyIV05FCci6YXs?usp=drive_link"
+            target="_blank">🪻 TOEIC PREP(3 chặng)
+        </a>
+        <p style="margin: 0px 0 10px 0; font-size: 30px; color: #333;"></p>
+        Có gì thắc mắc thì hỏi mình qua ig này nhé
+
+        <a href="https://www.instagram.com/_nm.19107" target="_blank">
+            <button class="Btn">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512" class="svgIcon">
+                    <path
+                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+                    </path>
+                </svg>
+                <span class="text">_nm.19107</span>
+            </button>
+        </a>
+        </p>
         <p style="margin: 20px 0 30px 0; font-size: 20px; color: #333;">
             Nếu bạn thấy tài liệu này hữu ích, hãy ủng hộ tớ vài gói mì tôm nhé !!
-            
+
         </p>
         <!-- Bao bọc nút trong thẻ <a> để thêm liên kết -->
         <a href="web/donate.html" target="_blank">
-            <button class="c-button c-button--gooey"> Donate ME
+            <button class="c-button c-button--gooey"> Donate me
                 <div class="c-button__blobs">
                     <div></div>
                     <div></div>
