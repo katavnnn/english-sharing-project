@@ -1,252 +1,165 @@
-.container {
-    text-align: center;
-    background-color: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* --- 1. SETUP & THEME --- */
+:root {
+    --font-family: 'Inter', sans-serif;
+    --primary-gradient: linear-gradient(90deg, #8E2DE2, #4A00E0);
+    --secondary-gradient: linear-gradient(90deg, #ff7e5f, #feb47b);
+    --highlight-gradient: linear-gradient(90deg, #1D976C, #93F9B9);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    color: #fff;
+    background: linear-gradient(-45deg, #4e54c8, #8f94fb, #4facfe, #00f2fe);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
     display: flex;
     flex-direction: column;
-    /* Sắp xếp các nút theo chiều dọc */
     align-items: center;
-    /* Canh giữa các nút */
-}
-
-h1 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.glow-on-hover {
-    width: 320px;
-    /* Tăng độ dài nút */
-    height: 50px;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: #111;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-    margin: 10px 0;
-    /* Thêm khoảng cách giữa các nút */
-    text-decoration: none;
-    /* Bỏ gạch chân */
-    display: flex;
-    /* Giúp căn giữa nội dung */
     justify-content: center;
-    /* Căn giữa nội dung theo chiều ngang */
-    align-items: center;
-    /* Căn giữa nội dung theo chiều dọc */
-    font-family: 'Arial', sans-serif;
-    /* Thay đổi font chữ */
-    font-size: 18px;
-    /* Kích thước font chữ */
-    font-weight: bold;
-    /* Đậm chữ */
-}
-.glow-on-hover2 {
-    width: 320px;
-    /* Tăng độ dài nút */
-    height: 50px;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: #ff0000;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-    margin: 10px 0;
-    /* Thêm khoảng cách giữa các nút */
-    text-decoration: none;
-    /* Bỏ gạch chân */
-    display: flex;
-    /* Giúp căn giữa nội dung */
-    justify-content: center;
-    /* Căn giữa nội dung theo chiều ngang */
-    align-items: center;
-    /* Căn giữa nội dung theo chiều dọc */
-    font-family: 'Arial', sans-serif;
-    /* Thay đổi font chữ */
-    font-size: 18px;
-    /* Kích thước font chữ */
-    font-weight: bold;
-    /* Đậm chữ */
 }
 
-.glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 10px;
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-.glow-on-hover:active {
-    color: #000
-}
-
-.glow-on-hover:active:after {
-    background: transparent;
-}
-
-.glow-on-hover:hover:before {
-    opacity: 1;
-}
-
-.glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
+/* --- 2. GLASS CONTAINER --- */
+.glass-container {
     width: 100%;
-    height: 100%;
-    background: #f1b8a7;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
+    max-width: 700px;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.c-button {
-    color: #000;
-    font-weight: 700;
-    font-size: 16px;
-    text-decoration: none;
-    padding: 0.9em 1.6em;
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: middle;
-    position: relative;
-    z-index: 1;
-    margin-top: 10px;
+/* --- 3. HEADER & TYPOGRAPHY --- */
+.site-header {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-.c-button--gooey {
-    color: #06c8d9;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border: 4px solid #06c8d9;
-    border-radius: 0;
-    position: relative;
-    transition: all 700ms ease;
-}
-
-.c-button--gooey .c-button__blobs {
-    height: 100%;
-    filter: url(#goo);
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: -3px;
-    right: -1px;
-    z-index: -1;
-}
-
-.c-button--gooey .c-button__blobs div {
-    background-color: #06c8d9;
-    width: 34%;
-    height: 100%;
-    border-radius: 100%;
-    position: absolute;
-    transform: scale(1.4) translateY(125%) translateZ(0);
-    transition: all 700ms ease;
-}
-
-.c-button--gooey .c-button__blobs div:nth-child(1) {
-    left: -5%;
-}
-
-.c-button--gooey .c-button__blobs div:nth-child(2) {
-    left: 30%;
-    transition-delay: 60ms;
-}
-
-.c-button--gooey .c-button__blobs div:nth-child(3) {
-    left: 66%;
-    transition-delay: 25ms;
-}
-
-.c-button--gooey:hover {
-    color: #fff;
-}
-
-.c-button--gooey:hover .c-button__blobs div {
-    transform: scale(1.4) translateY(0) translateZ(0);
-}
-
-@keyframes glowing {
-    0% {
-        background-position: 0 0;
-    }
-
-    50% {
-        background-position: 400% 0;
-    }
-
-    100% {
-        background-position: 0 0;
-    }
-}
-.Btn {
-    border: none;
-    float: left;
+.avatar {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    margin-bottom: 1rem;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.gradient-text {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- 4. LINKS GRID & BUTTONS --- */
+.links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition-duration: .4s;
-    cursor: pointer;
-    position: relative;
-    background: #f09433;
-    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
-    overflow: hidden;
-  }
-  
-  .svgIcon {
-    transition-duration: .3s;
-  }
-  
-  .svgIcon path {
-    fill: white;
-  }
-  
-  .text {
-    position: absolute;
-    color: rgb(255, 255, 255);
-    width: 120px;
+    gap: 0.75rem;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
     font-weight: 600;
-    opacity: 0;
-    transition-duration: .4s;
-  }
-  
-  .Btn:hover {
-    width: 110px;
-    transition-duration: .4s;
-    border-radius: 30px;
-  }
-  
-  .Btn:hover .text {
-    opacity: 1;
-    transition-duration: .4s;
-  }
-  
-  .Btn:hover .svgIcon {
-    opacity: 0;
-    transition-duration: .3s;
-  }
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn--highlight {
+    background: var(--highlight-gradient);
+    border: none;
+    font-weight: 700;
+}
+
+.btn--donate {
+    background: var(--secondary-gradient);
+    border: none;
+    font-weight: 700;
+    box-shadow: 0 4px 20px rgba(255, 126, 95, 0.4);
+}
+
+/* --- 5. SUPPORT & FOOTER --- */
+.support-section {
+    text-align: center;
+}
+
+.support-section p {
+    margin-bottom: 1rem;
+}
+
+.site-footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.site-footer p {
+    margin-bottom: 0.5rem;
+}
+
+/* --- 6. RESPONSIVE DESIGN --- */
+@media (max-width: 600px) {
+    .links-grid {
+        grid-template-columns: 1fr;
+    }
+    .gradient-text {
+        font-size: 1.8rem;
+    }
+    .glass-container {
+        padding: 1.5rem;
+    }
+}
+
+/* --- 7. INSTAGRAM BUTTON --- */
+.Btn { border: none; float: left; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; transition-duration: .4s; cursor: pointer; position: relative; background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); overflow: hidden; }
+.svgIcon { transition-duration: .3s; }
+.svgIcon path { fill: white; }
+.text { position: absolute; color: rgb(255, 255, 255); width: 120px; font-weight: 600; opacity: 0; transition-duration: .4s; }
+.Btn:hover { width: 110px; transition-duration: .4s; border-radius: 30px; }
+.Btn:hover .text { opacity: 1; transition-duration: .4s; }
+.Btn:hover .svgIcon { opacity: 0; transition-duration: .3s; }
