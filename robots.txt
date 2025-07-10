@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://katavnnn.github.io/english-sharing-project/sitemap.xml
