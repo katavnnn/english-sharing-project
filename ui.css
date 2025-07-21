@@ -1,11 +1,45 @@
-/* --- 1. SETUP & THEME --- */
+/* =======================================================
+   UI.CSS - ENGLISH LEARNING HUB
+   Version: Pro (Dark/Light Mode, 3D Effects, AOS)
+   ======================================================= */
+
+/* --- 1. SETUP & THEME VARIABLES --- */
 :root {
+    /* DARK THEME (Mặc định) */
     --font-family: 'Inter', sans-serif;
-    --primary-gradient: linear-gradient(90deg, #8E2DE2, #4A00E0);
-    --secondary-gradient: linear-gradient(90deg, #ff7e5f, #feb47b);
+    --bg-gradient: linear-gradient(-45deg, #4e54c8, #8f94fb, #4facfe, #00f2fe);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-color: #fff;
+    --text-color-light: rgba(255, 255, 255, 0.8);
+    --gradient-text: linear-gradient(90deg, #8E2DE2, #4A00E0);
+    --btn-bg: rgba(255, 255, 255, 0.15);
+    --btn-border: rgba(255, 255, 255, 0.3);
+    --btn-bg-hover: rgba(255, 255, 255, 0.25);
     --highlight-gradient: linear-gradient(90deg, #1D976C, #93F9B9);
+    --secondary-gradient: linear-gradient(90deg, #ff7e5f, #feb47b);
+    --message-board-bg: rgba(0, 0, 0, 0.1);
+    --message-header-bg: rgba(0, 0, 0, 0.15);
+    --dropdown-bg-open: rgba(0, 0, 0, 0.1);
 }
 
+body.light-theme {
+    /* LIGHT THEME */
+    --bg-gradient: linear-gradient(45deg, #e0c3fc 0%, #8ec5fc 100%);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 1);
+    --text-color: #212529;
+    --text-color-light: #6c757d;
+    --gradient-text: linear-gradient(90deg, #667eea, #764ba2);
+    --btn-bg: rgba(255, 255, 255, 0.8);
+    --btn-border: #dee2e6;
+    --btn-bg-hover: #f8f9fa;
+    --message-board-bg: rgba(255, 255, 255, 0.5);
+    --message-header-bg: rgba(0, 0, 0, 0.05);
+    --dropdown-bg-open: rgba(0, 0, 0, 0.03);
+}
+
+/* --- 2. GLOBAL STYLES & BACKGROUND --- */
 * {
     margin: 0;
     padding: 0;
@@ -16,14 +50,15 @@ body {
     font-family: var(--font-family);
     min-height: 100vh;
     padding: 2rem 1rem;
-    color: #fff;
-    background: linear-gradient(-45deg, #4e54c8, #8f94fb, #4facfe, #00f2fe);
+    color: var(--text-color);
+    background: var(--bg-gradient);
     background-size: 400% 400%;
     animation: gradient-animation 15s ease infinite;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: background 0.5s ease, color 0.5s ease;
 }
 
 @keyframes gradient-animation {
@@ -32,26 +67,52 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* --- 2. GLASS CONTAINER --- */
+/* --- 3. MAIN CONTAINER --- */
 .glass-container {
     width: 100%;
     max-width: 700px;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-border);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: background 0.5s ease, border 0.5s ease;
 }
 
-/* --- 3. HEADER & TYPOGRAPHY --- */
+/* --- 4. HEADER & THEME TOGGLE BUTTON --- */
 .site-header {
     text-align: center;
     margin-bottom: 2rem;
+    position: relative;
+    width: 100%;
+}
+
+.theme-toggle-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 45px;
+    height: 45px;
+    background: var(--btn-bg);
+    border: 1px solid var(--btn-border);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1) rotate(15deg);
 }
 
 .avatar {
@@ -59,32 +120,98 @@ body {
     height: 100px;
     border-radius: 50%;
     margin-bottom: 1rem;
-    border: 3px solid rgba(255, 255, 255, 0.5);
+    border: 3px solid var(--glass-border);
 }
 
 .gradient-text {
     font-size: 2.2rem;
     font-weight: 700;
-    background: var(--primary-gradient);
+    background: var(--gradient-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
     margin-bottom: 0.5rem;
+    transition: background 0.5s ease;
 }
 
 .subtitle {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-color-light);
 }
 
-/* --- 4. LINKS GRID & BUTTONS --- */
+/* --- 5. MESSAGE BOARD & GUIDE --- */
+.message-board {
+    width: 100%;
+    background: var(--message-board-bg);
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.5s ease;
+}
+
+.message-header {
+    background: var(--message-header-bg);
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.5s ease;
+}
+
+.message-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.9;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.message-content {
+    padding: 1.5rem;
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.message-content > p { margin-bottom: 1.5rem; }
+.message-content strong { color: var(--text-color); font-weight: 600; }
+
+.guide-dropdown {
+    border: 1px solid var(--btn-border);
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.guide-dropdown[open] { background-color: var(--dropdown-bg-open); }
+.guide-dropdown summary { padding: 1rem; cursor: pointer; outline: none; list-style: none; display: flex; align-items: center; gap: 0.75rem; }
+.guide-dropdown summary::-webkit-details-marker { display: none; }
+.guide-dropdown .dropdown-icon { margin-left: auto; transition: transform 0.3s ease; }
+.guide-dropdown[open] .dropdown-icon { transform: rotate(180deg); }
+.guide-content { padding: 0 1.5rem 1.5rem 1.5rem; border-top: 1px solid var(--btn-border); margin-top: 0.5rem; }
+
+/* Lộ trình chi tiết */
+.guide-step { padding: 1.25rem 0; }
+.guide-step:not(:last-child) { border-bottom: 1px solid var(--btn-border); }
+.guide-step h4 { color: var(--text-color); font-size: 1.1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+.guide-step .step-goal, .guide-step .step-focus, .guide-step .step-action { margin-bottom: 1rem; padding-left: 1.75rem; position: relative; }
+.guide-step .step-goal:before, .guide-step .step-focus:before, .guide-step .step-action:before { font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; top: 5px; opacity: 0.8; }
+.guide-step .step-goal:before { content: '\f140'; color: #82c9ff; }
+.guide-step .step-focus:before { content: '\f002'; color: #ffd43b; }
+.guide-step .step-action:before { content: '\f3a5'; color: #94d82d; }
+.guide-step ul { list-style: none; padding-left: 0; margin-top: 0.5rem; }
+.guide-step li { position: relative; padding-left: 1.25rem; margin-bottom: 0.5rem; }
+.guide-step li::before { content: '✓'; position: absolute; left: 0; background: var(--highlight-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; }
+
+
+/* --- 6. LINKS GRID & 3D CARD EFFECT --- */
 .links-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
     width: 100%;
     margin-bottom: 2rem;
+    perspective: 1000px;
 }
 
 .btn {
@@ -96,70 +223,49 @@ body {
     text-align: center;
     text-decoration: none;
     font-weight: 600;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--text-color);
+    background: var(--btn-bg);
+    border: 1px solid var(--btn-border);
     border-radius: 12px;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     backdrop-filter: blur(5px);
+    transform-style: preserve-3d;
 }
 
 .btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-4px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: var(--btn-bg-hover);
+    transform: translateZ(25px) rotateX(-5deg) rotateY(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-.btn--highlight {
-    background: var(--highlight-gradient);
-    border: none;
-    font-weight: 700;
-}
+.btn--highlight { background: var(--highlight-gradient); border: none; font-weight: 700; color: #fff; }
+.btn--donate { background: var(--secondary-gradient); border: none; font-weight: 700; box-shadow: 0 4px 20px rgba(255, 126, 95, 0.4); color: #fff; }
 
-.btn--donate {
-    background: var(--secondary-gradient);
-    border: none;
-    font-weight: 700;
-    box-shadow: 0 4px 20px rgba(255, 126, 95, 0.4);
-}
+/* --- 7. SUPPORT & FOOTER --- */
+.support-section { text-align: center; margin-bottom: 2rem;}
+.support-section p { margin-bottom: 1rem; }
 
-/* --- 5. SUPPORT & FOOTER --- */
-.support-section {
-    text-align: center;
-}
+.site-footer { margin-top: 2rem; text-align: center; color: var(--text-color-light); }
+.site-footer p { margin-bottom: 0.5rem; }
 
-.support-section p {
-    margin-bottom: 1rem;
-}
-
-.site-footer {
-    margin-top: 2rem;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.site-footer p {
-    margin-bottom: 0.5rem;
-}
-
-/* --- 6. RESPONSIVE DESIGN --- */
+/* --- 8. RESPONSIVE DESIGN --- */
 @media (max-width: 600px) {
-    .links-grid {
-        grid-template-columns: 1fr;
-    }
-    .gradient-text {
-        font-size: 1.8rem;
-    }
-    .glass-container {
-        padding: 1.5rem;
-    }
+    body { padding: 1.5rem 1rem; }
+    .glass-container { padding: 1.5rem; }
+    .links-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .gradient-text { font-size: 1.8rem; }
+    .theme-toggle-btn { top: -5px; right: -5px; }
 }
 
-/* --- 7. INSTAGRAM BUTTON --- */
-.Btn { border: none; float: left; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; transition-duration: .4s; cursor: pointer; position: relative; background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); overflow: hidden; }
+/* --- 9. INSTAGRAM BUTTON --- */
+/* Your original cool button, it works fine! */
+.Btn { border: none; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; transition-duration: .4s; cursor: pointer; position: relative; background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); overflow: hidden; }
 .svgIcon { transition-duration: .3s; }
 .svgIcon path { fill: white; }
 .text { position: absolute; color: rgb(255, 255, 255); width: 120px; font-weight: 600; opacity: 0; transition-duration: .4s; }
-.Btn:hover { width: 110px; transition-duration: .4s; border-radius: 30px; }
+.Btn:hover { width: 120px; transition-duration: .4s; border-radius: 30px; }
 .Btn:hover .text { opacity: 1; transition-duration: .4s; }
 .Btn:hover .svgIcon { opacity: 0; transition-duration: .3s; }
+Use code with caution.
+Css
+Chúc mừng bạn đã hoàn thành một bản nâng cấp lớn! Trang web của bạn giờ đây đã thực sự "pro" rồi.

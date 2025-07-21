@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tài Liệu Tiếng Anh Miễn Phí | IELTS, TOEIC & Ngữ Pháp</title>
-    <meta name="description" content="Khám phá kho tài liệu học Tiếng Anh chất lượng cao và hoàn toàn miễn phí. Tổng hợp đầy đủ tài liệu IELTS, TOEIC, Ngữ pháp, Từ vựng và các kỹ năng.">
+    <meta name="description"
+        content="Khám phá kho tài liệu học Tiếng Anh chất lượng cao và hoàn toàn miễn phí. Tổng hợp đầy đủ tài liệu IELTS, TOEIC, Ngữ pháp, Từ vựng và các kỹ năng.">
     <link rel="icon" type="image/png" href="nm.jpg">
 
     <!-- Google Fonts: Inter -->
@@ -14,7 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Thư viện AOS cho hiệu ứng cuộn trang -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <!-- Your CSS file -->
     <link rel="stylesheet" href="ui.css">
@@ -31,42 +36,186 @@
 
 <body>
     <main class="glass-container">
-        
+
         <header class="site-header">
+            <!-- Nút chuyển đổi Theme -->
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Chuyển đổi theme">
+                <i class="fa-solid fa-sun"></i>
+            </button>
             <img src="nm.jpg" alt="Your Avatar" class="avatar">
             <h1 class="gradient-text">English Material Sharing Project</h1>
             <p class="subtitle">Kho tài liệu IELTS, TOEIC & Tiếng Anh cơ bản</p>
         </header>
+        <!-- ======================= CHÈN ĐOẠN CODE MỚI VÀO ĐÂY ======================= -->
+        <section class="message-board">
+            <div class="message-header">
+                <h3><i class="fa-solid fa-paper-plane"></i> A Message For You</h3>
+            </div>
+            <div class="message-content">
+                <p><strong>Chào các bạn, mình là Minh!</strong> Cảm ơn bạn đã ghé thăm góc nhỏ này. Mọi tài liệu ở đây
+                    đều được mình sưu tầm với mong muốn giúp con đường học Tiếng Anh của bạn trở nên dễ dàng hơn. Thực
+                    sự là Tiếng Anh giúp mình rất nhiều và học ngoại ngữ thì chưa bao giờ là điều dễ dàng. Nên hãy kiên
+                    trì nhé, thành công đang ở phía trước!</p>
+                <p>Tài liệu mình tổng hợp thì khá nhiều nhưng chắc cũng không dùng hết được, phải chọn cho cậu tài liệu
+                    thật phù hợp nhé <3< /p>
+                        <!-- ======================= THAY THẾ TOÀN BỘ THẺ <details> CŨ BẰNG ĐOẠN NÀY ======================= -->
+                        <details class="guide-dropdown">
+                            <summary>
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                <strong>Lộ trình tự học IELTS chi tiết cho người mới bắt đầu</strong>
+                                <span class="dropdown-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                            </summary>
+                            <div class="guide-content">
+                                <!-- GIAI ĐOẠN 1 -->
+                                <div class="guide-step">
+                                    <h4><i class="fa-solid fa-seedling"></i> Bước 1: Gieo Mầm Nền Tảng (Target: 0 →
+                                        4.0+)</h4>
+                                    <p class="step-goal">
+                                        <strong>Mục tiêu chính:</strong> Xây dựng sự tự tin và "cảm giác" với Tiếng Anh.
+                                        Giai đoạn này chưa cần tập trung vào IELTS, mà là xây dựng một nền móng thật
+                                        vững chắc.
+                                    </p>
+                                    <div class="step-focus">
+                                        <strong>Tập trung vào:</strong>
+                                        <ul>
+                                            <li><strong>Phát âm:</strong> Học bảng phiên âm quốc tế (IPA) để phát âm
+                                                chuẩn từng từ. Đây là khoản đầu tư quan trọng nhất.</li>
+                                            <li><strong>Ngữ pháp cơ bản:</strong> Nắm vững các thì thiết yếu (Hiện tại
+                                                đơn/tiếp diễn/hoàn thành, Quá khứ đơn, Tương lai đơn - IELTS chỉ cần
+                                                những thì đơn giản này thui), cấu trúc câu S-V-O, danh từ, động từ, tính
+                                                từ.</li>
+                                            <li><strong>Từ vựng cốt lõi:</strong> Khoảng 500-1000 từ vựng thông dụng
+                                                nhất trong đời sống hàng ngày.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="step-action">
+                                        <strong>Hành động cụ thể:</strong>
+                                        <ul>
+                                            <li>Học các khóa trong mục <strong>"Khóa Mất Gốc"</strong> và <strong>"8
+                                                    Khóa Cơ Bản"</strong> của trang.</li>
+                                            <li>Nghe nhạc US-UK, xem phim có phụ đề Anh-Việt để "tắm" mình trong ngôn
+                                                ngữ.</li>
+                                            <li>Luyện phát âm mỗi ngày và học IPA.</li>
+                                            <li>Viết nhật ký ngắn 3-5 câu mỗi ngày về hoạt động trong ngày của bạn. Đừng
+                                                sợ sai!</li>
+                                        </ul>
+                                    </div>
+                                </div>
 
+                                <!-- GIAI ĐOẠN 2 -->
+                                <div class="guide-step">
+                                    <h4><i class="fa-solid fa-building"></i> Bước 2: Xây Dựng Kỹ Năng (Target: 4.0 →
+                                        5.5+)</h4>
+                                    <p class="step-goal">
+                                        <strong>Mục tiêu chính:</strong> Làm quen với cấu trúc đề thi IELTS và bắt đầu
+                                        rèn luyện từng kỹ năng riêng biệt.
+                                    </p>
+                                    <div class="step-focus">
+                                        <strong>Tập trung vào:</strong>
+                                        <ul>
+                                            <li><strong>Listening & Reading:</strong> Học các kỹ năng cốt lõi như
+                                                Skimming (đọc lướt lấy ý chính) và Scanning (đọc quét tìm thông tin cụ
+                                                thể).</li>
+                                            <li><strong>Writing:</strong> Nắm vững cách viết các dạng biểu đồ của Task 1
+                                                và cấu trúc một bài luận cơ bản (Mở bài, Thân bài, Kết bài) cho Task 2.
+                                            </li>
+                                            <li><strong>Speaking:</strong> Luyện trả lời trôi chảy các câu hỏi trong
+                                                Part 1 và bắt đầu tập xây dựng ý tưởng cho Part 2.</li>
+                                            <li><strong>Từ vựng theo chủ đề:</strong> Mở rộng vốn từ theo các chủ đề
+                                                thường gặp (Environment, Education, Technology...).</li>
+                                        </ul>
+                                    </div>
+                                    <div class="step-action">
+                                        <strong>Hành động cụ thể:</strong>
+                                        <ul>
+                                            <li>Trước đây mình sử dụng bộ <strong>Hacker IELTS Reading</strong> và
+                                                <strong>Hacker IELTS Speaking nhé.</strong>
+                                            </li>
+                                            <li>Bắt đầu làm từng phần riêng lẻ của các đề Cambridge, chưa cần bấm giờ.
+                                                Mục tiêu là làm đúng và hiểu tại sao mình đúng/sai.</li>
+                                            <li>Tập viết ít nhất 2 bài Writing mỗi tuần (1 Task 1, 1 Task 2).</li>
+                                            <li>Tìm bạn đồng hành để luyện nói các chủ đề đơn giản.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- GIAI ĐOẠN 3 -->
+                                <div class="guide-step">
+                                    <h4><i class="fa-solid fa-rocket"></i> Bước 3: Tăng Tốc Về Đích (Target: 5.5 → 6.5+)
+                                    </h4>
+                                    <p class="step-goal">
+                                        <strong>Mục tiêu chính:</strong> Tối ưu hóa điểm số bằng chiến thuật làm bài,
+                                        quản lý thời gian và luyện tập phản xạ.
+                                    </p>
+                                    <div class="step-focus">
+                                        <strong>Tập trung vào:</strong>
+                                        <ul>
+                                            <li><strong>Chiến thuật & Thời gian:</strong> Luyện làm full test dưới áp
+                                                lực thời gian thật.</li>
+                                            <li><strong>Writing nâng cao:</strong> Học cách sử dụng cấu trúc câu phức,
+                                                từ vựng học thuật (academic vocabulary) và các từ nối để bài viết mạch
+                                                lạc hơn.</li>
+                                            <li><strong>Speaking trôi chảy:</strong> Luyện tập để có thể nói liên tục
+                                                trong 2 phút ở Part 2 và phát triển các ý kiến trừu tượng, đa chiều ở
+                                                Part 3.</li>
+                                            <li><strong>Phân tích lỗi sai:</strong> Ghi lại tất cả lỗi sai của mình vào
+                                                một cuốn sổ và xem lại thường xuyên.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="step-action">
+                                        <strong>Hành động cụ thể:</strong>
+                                        <ul>
+                                            <li>"Cày" các tài liệu trong kho <strong>"IELTS Writing"</strong> và
+                                                <strong>"Kho Speaking"</strong>.
+                                            </li>
+                                            <li>Sử dụng link <strong>"AI Chấm Writing"</strong> để nhận feedback cho bài
+                                                viết của mình. Đây là bước cực kỳ quan trọng để tiến bộ.</li>
+                                            <li>Ghi âm lại phần nói của mình và nghe lại để tự sửa lỗi phát âm, ngữ
+                                                pháp.</li>
+                                            <li>Đặt mục tiêu mỗi tuần làm ít nhất một bài Mock Test hoàn chỉnh.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+                        <!-- ======================================================================================================== -->
+            </div>
+        </section>
         <nav class="links-grid">
-            <a class="btn" href="web/subject1.html" target="_blank">
+            <a class="btn" href="web/subject1.html" target="_blank" data-aos="fade-up" data-aos-delay="100">
                 <i class="fa-solid fa-graduation-cap"></i> Khóa Học IELTS
             </a>
-            <a class="btn" href="web/subject2.html" target="_blank">
+            <a class="btn" href="web/subject2.html" target="_blank" data-aos="fade-up" data-aos-delay="150">
                 <i class="fa-solid fa-spell-check"></i> Vocab & Grammar
             </a>
-            <a class="btn" href="web/subject3.html" target="_blank">
+            <a class="btn" href="web/subject3.html" target="_blank" data-aos="fade-up" data-aos-delay="200">
                 <i class="fa-solid fa-headphones-simple"></i> Kho Listening
             </a>
-            <a class="btn" href="web/subject4.html" target="_blank">
+            <a class="btn" href="web/subject4.html" target="_blank" data-aos="fade-up" data-aos-delay="250">
                 <i class="fa-solid fa-book-open-reader"></i> Kho Reading
             </a>
-            <a class="btn" href="web/subject5.html" target="_blank">
+            <a class="btn" href="web/subject5.html" target="_blank" data-aos="fade-up" data-aos-delay="300">
                 <i class="fa-solid fa-microphone-lines"></i> Kho Speaking
             </a>
-            <a class="btn" href="web/subject6.html" target="_blank">
+            <a class="btn" href="web/subject6.html" target="_blank" data-aos="fade-up" data-aos-delay="350">
                 <i class="fa-solid fa-pen-nib"></i> Kho IELTS Writing
             </a>
-            <a class="btn" href="web/subject7.html" target="_blank">
+            <a class="btn" href="web/subject7.html" target="_blank" data-aos="fade-up" data-aos-delay="400">
                 <i class="fa-solid fa-rocket"></i> 8 Khóa Cơ Bản
             </a>
-            <a class="btn" href="web/subject8.html" target="_blank">
+            <a class="btn" href="web/subject8.html" target="_blank" data-aos="fade-up" data-aos-delay="450">
                 <i class="fa-solid fa-seedling"></i> Khóa Mất Gốc
             </a>
-            <a class="btn" href="https://drive.google.com/drive/folders/1VUug2qT0nlxTrW7gSCfyIV05FCci6YXs?usp=drive_link" target="_blank">
+            <a class="btn" href="web/subject9.html" target="_blank" data-aos="fade-up" data-aos-delay="500">
+                <i class="fa-solid fa-seedling"></i> Tổng hợp All kiến thức
+            </a>
+            <a class="btn"
+                href="https://drive.google.com/drive/folders/1VUug2qT0nlxTrW7gSCfyIV05FCci6YXs?usp=drive_link"
+                target="_blank" data-aos="fade-up" data-aos-delay="550">
                 <i class="fa-solid fa-award"></i> TOEIC Prep
             </a>
-            <a class="btn btn--highlight" href="https://www.instagram.com/p/DLpSCm7PesR/" target="_blank">
+            <a class="btn btn--highlight" href="https://www.instagram.com/p/DLpSCm7PesR/" target="_blank"
+                data-aos="fade-up" data-aos-delay="600">
                 <i class="fa-solid fa-robot"></i> AI Writing (Anh HuyForum)
             </a>
         </nav>
@@ -84,11 +233,19 @@
         <p>Có gì khó khăn trong việc học IELTS, liên hệ mình qua</p>
         <a href="https://www.instagram.com/_muanhoem" target="_blank">
             <button class="Btn">
-                <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512" class="svgIcon"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512" class="svgIcon">
+                    <path
+                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+                    </path>
+                </svg>
                 <span class="text">_muanhoem</span>
             </button>
         </a>
     </footer>
-
+    <!-- Thư viện JS của AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- File JS tùy chỉnh của bạn -->
+    <script src="main.js"></script>
 </body>
+
 </html>
