@@ -3,6 +3,7 @@ module.exports = function(eleventyConfig) {
   // Copy các thư mục JS và Images.
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/assets/images");
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
 
   return {
     // ================== THÊM VÀO ĐÂY ==================
