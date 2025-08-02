@@ -6,8 +6,8 @@ module.exports = function(eleventyConfig) {
 
   return {
     // ================== THÊM VÀO ĐÂY ==================
-    // Thay "english-vite" bằng tên repo của bạn nếu khác
-    pathPrefix: "/english-vite/",
+    // Thay "/english-sharing-project/" bằng tên repo của bạn nếu khác
+    pathPrefix: "/english-sharing-project/",
     // ===============================================
 
     dir: {
