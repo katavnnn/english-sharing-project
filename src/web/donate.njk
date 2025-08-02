@@ -1,51 +1,38 @@
 ---
-layout: layouts/base.njk
+layout: layouts/free-page.njk
 title: "Ủng hộ tác giả"
 ---
 
 {# 
-  Nội dung của trang Donate sẽ được đặt trong một container riêng.
-  Nó sẽ được tiêm thẳng vào {{ content | safe }} của base.njk, không đi qua page.njk.
+  Bây giờ nội dung này sẽ được đặt trực tiếp vào container của free-page.njk,
+  không bị một cái hộp nào khác bọc ngoài nữa.
 #}
-<div class="flex flex-col items-center justify-center min-h-screen w-full p-4 sm:p-6 relative">
-    <!-- Nút quay về -->
-    <a href="{{ '/' | url }}" 
-       class="absolute top-4 left-4 md:top-6 md:left-6 z-20 w-12 h-12 flex items-center justify-center bg-black/20 dark:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-black/30 dark:hover:bg-white/20 hover:scale-110 transition-all duration-300" 
-       aria-label="Quay về trang chủ">
-        <i class="fa-solid fa-arrow-left"></i>
-    </a>
+<div 
+    class="
+        w-full max-w-md 
+        bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl 
+        dark:bg-gray-900/50 dark:border-gray-700
+        p-8 text-center
+    "
+    data-aos="zoom-in"
+>
+    <header class="mb-6">
+        <h1 class="text-3xl font-bold flex items-center justify-center gap-3">
+            <i class="fa-solid fa-heart text-red-400"></i> Cảm Ơn Bạn!
+        </h1>
+    </header>
 
-    <!-- Nội dung card donate -->
-    <div 
-        class="
-            w-full max-w-md mx-auto my-auto
-            bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl 
-            dark:bg-gray-900/50 dark:border-gray-700
-            p-8 text-center
-        "
-        data-aos="zoom-in"
-    >
-        <header class="mb-6">
-            <h1 class="text-3xl font-bold flex items-center justify-center gap-3">
-                <i class="fa-solid fa-heart text-red-400"></i> Cảm Ơn Bạn!
-            </h1>
-        </header>
-
-        {# Card trắng chứa QR code #}
-        <div class="bg-white rounded-xl p-4 shadow-lg">
-            
-            <!-- DÒNG ĐÃ ĐƯỢC SỬA LỖI -->
-            <img src="{{ '/assets/images/qr-code-transparent.png' | url }}" alt="Mã QR ủng hộ" class="w-full max-w-xs mx-auto">
-            
-            <div class="mt-2 text-gray-800 font-semibold">
-                <p>Nguyễn Nhật Minh</p>
-                <p class="font-normal text-sm text-gray-600">SĐT: **** **** 827</p>
-            </div>
+    {# Card trắng chứa QR code #}
+    <div class="bg-white rounded-xl p-4 shadow-lg">
+        <img src="{{ '/assets/images/qr-code-transparent.jpg' | url }}" alt="Mã QR ủng hộ" class="w-full max-w-xs mx-auto">
+        <div class="mt-2 text-gray-800 font-semibold">
+            <p>Nguyễn Nhật Minh</p>
+            <p class="font-normal text-sm text-gray-600">SĐT: **** **** 827</p>
         </div>
-        
-        <div class="text-white/80 dark:text-gray-300 mt-6">
-            <p>Quét mã VietQR ở trên để ủng hộ mình một ly cà phê nhé.</p>
-            <p>Sự ủng hộ của bạn là niềm vui và động lực rất lớn cho mình!</p>
-        </div>
+    </div>
+    
+    <div class="text-white/80 dark:text-gray-300 mt-6 text-sm">
+        <p>Quét mã VietQR ở trên để ủng hộ mình một ly cà phê nhé.</p>
+        <p>Sự ủng hộ của bạn là niềm vui và động lực rất lớn cho mình!</p>
     </div>
 </div>
