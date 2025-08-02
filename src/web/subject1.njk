@@ -1,0 +1,30 @@
+---
+layout: layouts/page.njk
+title: "Tổng Hợp Khóa Học IELTS Miễn Phí"
+iframe_b64: "aHR0cHM6Ly9kb2NzLmdvb2dsZS5jb20vc3ByZWFkc2hlZXRzL2QvZS8yUEFDWC0xdlF3d1BaemtZZS1DZjZTQ3M4SkxpYU4yMzJUYWVnYnlIbFo5WmgzZ2hMV3BLMGJnOXIzS21US1VXc1A5d1MzWWlGVWxGb0dPYW9YeC1PMy9wdWJodG1sP3dpZGdldD10cnVlJmFtcDtoZWFkZXJzPWZhbHNl"
+---
+
+{# Header của trang #}
+<header class="text-center mb-4 flex-shrink-0">
+    <h1 class="text-2xl font-bold dark:text-white text-gray-800">{{ title }}</h1>
+</header>
+
+{# Wrapper cho Iframe #}
+<div class="flex-grow rounded-lg overflow-hidden border border-white/20">
+    <iframe id="googleSheet" class="w-full h-full bg-white"></iframe>
+</div>
+
+{# Script inline để điều khiển iframe này, và chỉ iframe này #}
+<script>
+    const iframe = document.getElementById('googleSheet');
+    const encodedURL = "{{ iframe_b64 }}";
+    
+    if (iframe && encodedURL) {
+        try {
+            iframe.src = atob(encodedURL);
+        } catch (e) {
+            console.error("Lỗi Base64:", e);
+            iframe.style.display = 'none'; // Ẩn iframe nếu có lỗi
+        }
+    }
+</script>

@@ -1,0 +1,74 @@
+---
+layout: layouts/base.njk
+title: "English Material Sharing Project"
+---
+
+{# Container chính để căn giữa #}
+<div class="flex flex-col items-center justify-center min-h-screen w-full p-4 sm:p-6">
+ <div class="absolute inset-0 overflow-hidden -z-10">
+        <div class="absolute inset-0 overflow-hidden -z-10">
+        <img src="{{ '/assets/images/lavender-1.png' | url }}" alt="Hình ảnh hoa lavender trang trí" 
+             class="background-lavender lavender-top-left"
+             aria-hidden="true">
+        <img src="{{ '/assets/images/lavender-2.png' | url }}" alt="Hình ảnh hoa lavender trang trí" 
+             class="background-lavender lavender-bottom-right"
+             aria-hidden="true">
+    </div>
+    </div>
+    {# Card Kính Mờ #}
+    <div 
+        class="w-full max-w-3xl bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl p-6 md:p-8 dark:bg-gray-900/50 dark:border-gray-700"
+        data-aos="fade-up"
+    >
+        {% include "header.njk" %}
+        {% include "message-board.njk" %}
+
+        {# Danh sách các link tài liệu (giữ nguyên) #}
+        {% set links = [
+    { href: "/web/subject1/", icon: "fa-graduation-cap", text: "Khóa Học IELTS" },
+    { href: "/web/subject2/", icon: "fa-spell-check", text: "Vocab & Grammar" },
+    { href: "/web/subject3/", icon: "fa-headphones-simple", text: "Kho Listening" },
+    { href: "/web/subject4/", icon: "fa-book-open-reader", text: "Kho Reading" },
+    { href: "/web/subject5/", icon: "fa-microphone-lines", text: "Kho Speaking" },
+    { href: "/web/subject6/", icon: "fa-pen-nib", text: "Kho IELTS Writing" },
+    { href: "/web/subject7/", icon: "fa-rocket", text: "8 Khóa Cơ Bản" },
+    { href: "/web/subject8/", icon: "fa-seedling", text: "Khóa Mất Gốc" },
+    { href: "/web/subject9/", icon: "fa-seedling", text: "Tổng hợp All kiến thức" },
+    { href: "https://drive.google.com/drive/folders/1VUug2qT0nlxTrW7gSCfyIV05FCci6YXs?usp=drive_link", icon: "fa-award", text: "TOEIC Prep", external: true },
+    { href: "https://www.instagram.com/p/DLpSCm7PesR/", icon: "fa-robot", text: "AI Writing (Anh HuyForum)", highlight: "green", external: true },
+    { href: "/web/donate/", icon: "fa-mug-hot", text: "Donate Me", highlight: "orange" }
+] %}
+
+<nav class="grid grid-cols-1 md:grid-cols-2 gap-4 [perspective:1000px]">
+    {% for link in links %}
+        <a 
+            {# SỬA LỖI QUAN TRỌNG NHẤT Ở ĐÂY #}
+            href="{{ link.href if link.external else (link.href | url) }}"
+            {# Nếu là link ngoài thì không cần target="_blank" #}
+            {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+            
+            data-aos="fade-up" 
+            data-aos-delay="{{ loop.index * 50 }}"
+            class="
+                flex items-center justify-center gap-3 p-4 rounded-lg font-semibold
+                transition-all duration-300 [transform-style:preserve-3d]
+                hover:[transform:translateZ(25px)_rotateX(-5deg)_rotateY(5deg)]
+                {% if link.highlight == 'green' %}
+                    bg-gradient-to-r from-green-500 to-teal-400 text-white shadow-lg hover:shadow-green-500/50
+                {% elif link.highlight == 'orange' %}
+                    bg-gradient-to-r from-orange-500 to-amber-400 text-white shadow-lg hover:shadow-orange-500/50
+                {% else %}
+                    bg-black/20 border border-white/20 hover:bg-black/30 dark:bg-white/10 dark:border-white/20 dark:hover:bg-white/20
+                {% endif %}
+            "
+        >
+            <i class="fa-solid {{ link.icon }}"></i> <span>{{ link.text }}</span>
+        </a>
+    {% endfor %}
+</nav>
+
+    </div>
+
+    {# Footer bây giờ là một phần của trang chủ #}
+    {% include "footer.njk" %}
+</div>

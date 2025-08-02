@@ -1,0 +1,55 @@
+# Tên của workflow
+name: Build and Deploy to GitHub Pages
+
+# Chạy workflow này mỗi khi có code được push lên nhánh "main"
+on:
+  push:
+    branches:
+      - main
+
+# Cho phép workflow này có quyền ghi vào repo để deploy
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    # Sử dụng môi trường ảo Ubuntu mới nhất để chạy
+    runs-on: ubuntu-latest
+    steps:
+      # Bước 1: Lấy mã nguồn từ repo về
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      # Bước 2: Thiết lập môi trường Node.js (phiên bản 18)
+      - name: Setup Node.js 🏗️
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm' # Tăng tốc độ bằng cách cache các gói đã cài
+
+      # Bước 3: Cài đặt các thư viện cần thiết
+      - name: Install dependencies 👨🏻‍💻
+        run: npm install
+
+      # Bước 4: Build trang web (chạy lệnh "npm run build")
+      - name: Build project ⚙️
+        env:
+          NODE_ENV: production
+        run: npm run build
+
+      # Bước 5: Cấu hình cho GitHub Pages
+      - name: Setup Pages 🛠️
+        uses: actions/configure-pages@v4
+      
+      # Bước 6: Tải lên thư mục "_site" đã được build
+      - name: Upload artifact 📦
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './_site' # Thư mục chứa kết quả build của Eleventy
+
+      # Bước 7: Deploy trang web
+      - name: Deploy to GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@v4

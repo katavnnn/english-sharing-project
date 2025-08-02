@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    {% include "head.njk" %}
+</head>
+<body class="antialiased text-gray-800 dark:text-white transition-colors duration-500 aurora-dark">
+
+    <div class="flex flex-col items-center justify-center min-h-screen w-full p-4 sm:p-6 relative">
+    
+        <!-- Nút Quay Về Trang Chủ -->
+        <a href="{{ '/' | url }}" 
+           class="absolute top-4 left-4 md:top-6 md:left-6 z-20 w-12 h-12 flex items-center justify-center bg-black/20 dark:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-black/30 dark:hover:bg-white/20 hover:scale-110 transition-all duration-300" 
+           aria-label="Quay về trang chủ"
+           data-aos="fade-right">
+            <i class="fa-solid fa-arrow-left text-lg"></i>
+        </a>
+
+        <!-- Card Kính Mờ chính -->
+        <div 
+            class="w-full h-[85vh] max-w-5xl bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl dark:bg-gray-900/50 dark:border-gray-700 flex flex-col p-6"
+            data-aos="zoom-in"
+        >
+            {{ content | safe }}
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="{{ '/assets/js/main.js' | url }}" type="module"></script>
+</body>
+</html>

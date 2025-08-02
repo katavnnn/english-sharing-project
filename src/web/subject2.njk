@@ -1,0 +1,30 @@
+---
+layout: layouts/page.njk
+title: "Kho Từ Vựng & Ngữ Pháp Tiếng Anh"
+iframe_b64: "aHR0cHM6Ly9kb2NzLmdvb2dsZS5jb20vc3ByZWFkc2hlZXRzL2QvZS8yUEFDWC0xdlJ2RTFQX1N6dUxEZk5BRGktMzVtRW5qS2dra2JXaEo1MUtuajFCbGQ4U3V1X3BUWU1kaF9JOVRFZWxHN252LVEvcHViaHRtbD93aWRnZXQ9dHJ1ZSZhbXA7aGVhZGVycz1mYWxzZQ=="
+---
+
+{# Header của trang #}
+<header class="text-center mb-4 flex-shrink-0">
+    <h1 class="text-2xl font-bold dark:text-white text-gray-800">{{ title }}</h1>
+</header>
+
+{# Wrapper cho Iframe #}
+<div class="flex-grow rounded-lg overflow-hidden border border-white/20">
+    <iframe id="googleSheet" class="w-full h-full bg-white"></iframe>
+</div>
+
+{# Script inline để điều khiển iframe này, và chỉ iframe này #}
+<script>
+    const iframe = document.getElementById('googleSheet');
+    const encodedURL = "{{ iframe_b64 }}";
+    
+    if (iframe && encodedURL) {
+        try {
+            iframe.src = atob(encodedURL);
+        } catch (e) {
+            console.error("Lỗi Base64:", e);
+            iframe.style.display = 'none'; // Ẩn iframe nếu có lỗi
+        }
+    }
+</script>
