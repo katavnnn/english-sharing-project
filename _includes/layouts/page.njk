@@ -9,20 +9,32 @@
     
         <!-- Nút Quay Về Trang Chủ -->
         <a href="{{ '/' | url }}" 
-           class="absolute top-4 left-4 md:top-6 md:left-6 z-20 w-12 h-12 flex items-center justify-center bg-black/20 dark:bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-black/30 dark:hover:bg-white/20 hover:scale-110 transition-all duration-300" 
+           class="absolute top-4 left-4 md:top-6 md-left-6 z-20 ..." 
            aria-label="Quay về trang chủ"
            data-aos="fade-right">
             <i class="fa-solid fa-arrow-left text-lg"></i>
         </a>
 
-        <!-- Card Kính Mờ chính -->
+        <!-- Card Kính Mờ chính chứa nội dung của trang con -->
         <div 
-            class="w-full h-[85vh] max-w-5xl bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl dark:bg-gray-900/50 dark:border-gray-700 flex flex-col p-6"
+            class="w-full h-[85vh] max-w-5xl ... flex flex-col p-6"
             data-aos="zoom-in"
         >
             {{ content | safe }}
-        </div>
+        </div> 
+        {# Dòng này là thẻ đóng của Card Kính Mờ #}
 
+
+        <!-- ======================= THÊM BANNER VÀO ĐÂY ======================= -->
+        {# 
+          Kiểm tra xem URL của trang hiện tại có phải là trang donate không.
+          Nếu KHÔNG PHẢI, thì hiển thị banner.
+        #}
+        {% if page.url !== ('/web/donate/' | url) %}
+            {% include "donate-banner.njk" %}
+        {% endif %}
+        <!-- ==================================================================== -->
+        
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
