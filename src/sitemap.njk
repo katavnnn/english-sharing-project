@@ -1,0 +1,22 @@
+---
+# Dòng permalink này rất quan trọng. Nó ra lệnh cho Eleventy tạo ra file
+# sitemap.xml ở thư mục gốc của trang web sau khi build.
+permalink: /sitemap.xml
+
+# Dòng này để Eleventy không cố gắng xử lý file sitemap như một file bình thường
+# trong collections của nó.
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {%- for page in collections.all %}
+        {# Chỉ bao gồm các trang không bị loại trừ (như chính file sitemap này) #}
+        {%- if not page.data.eleventyExcludeFromCollections %}
+            <url>
+                <loc>{{ site.url or "https://katavnnn.github.io/english-sharing-project" }}{{ page.url | url }}</loc>
+                <lastmod>{{ page.date.toISOString() }}</lastmod>
+                <priority>{{ page.data.priority or 0.8 }}</priority>
+            </url>
+        {%- endif %}
+    {%- endfor %}
+</urlset>
