@@ -1,0 +1,50 @@
+---
+# Sử dụng layout free-page để có nền, nút quay lại ở góc và banner donate
+layout: layouts/free-page.njk
+title: "404 - Lạc đường rồi à?"
+
+# Dòng này đảm bảo file output sẽ là 404.html ở thư mục gốc
+permalink: /404.html
+
+# Dòng này để trang 404 không xuất hiện trong sitemap
+eleventyExcludeFromCollections: true
+---
+
+{# Nội dung chính của trang 404 #}
+<div 
+    class="
+        w-full max-w-lg m-auto
+        bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl 
+        dark:bg-gray-900/50 dark:border-gray-700
+        p-8 md:p-12 text-center flex flex-col items-center
+    "
+    data-aos="zoom-in"
+>
+    <!-- Chú Ma CSS Dễ Thương -->
+    <div class="ghost-container">
+        <div class="ghost">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="ghost-shadow"></div>
+    </div>
+
+    <h1 class="text-6xl font-bold text-white mt-8">404</h1>
+    <p class="text-xl font-semibold text-white/90 mt-2">Oops! Trang này bay mất rồi...</p>
+    <p class="text-white/70 mt-4">
+        Có vẻ như chú ma nhỏ đã giấu trang bạn đang tìm đi đâu đó mất rồi. Đừng lo, hãy quay về nơi an toàn nhé.
+    </p>
+
+    <a href="{{ '/' | url }}"
+       class="
+            inline-flex items-center justify-center gap-2 px-8 py-3 mt-8
+            rounded-full font-semibold
+            bg-gradient-to-r from-purple-500 to-indigo-500 text-white 
+            shadow-lg hover:shadow-purple-500/50
+            transform hover:-translate-y-1
+            transition-all duration-300
+       ">
+        <i class="fa-solid fa-house"></i>
+        <span>Quay về Trang Chủ</span>
+    </a>
+</div>

@@ -50,3 +50,70 @@
         display: none;
     }
 }
+
+
+.ghost-container {
+    position: relative;
+    width: 120px;
+    height: 140px;
+}
+
+.ghost {
+    width: 100px;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50px 50px 0 0;
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    animation: float 3s ease-in-out infinite;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.ghost span {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #333;
+    border-radius: 50%;
+    top: 40px;
+}
+
+.ghost span:nth-child(1) {
+    left: 25px;
+}
+
+.ghost span:nth-child(2) {
+    right: 25px;
+}
+
+.ghost-shadow {
+    width: 80px;
+    height: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    animation: shadow 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes shadow {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(0.8);
+        opacity: 0.4;
+    }
+}
