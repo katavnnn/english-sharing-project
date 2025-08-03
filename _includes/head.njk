@@ -2,46 +2,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 {# ============================= SEO CƠ BẢN ============================= #}
-{# Sử dụng title/description của trang, nếu không có thì dùng của site #}
 <title>{{ title or site.title }}</title>
 <meta name="description" content="{{ description or site.description }}">
+
+{# ======================= LOGIC XỬ LÝ URL CHO MẠNG XÃ HỘI ======================= #}
+{# 
+  Bước 1: Xác định đường dẫn tương đối của ảnh.
+  Sử dụng ảnh của trang (ogImage), nếu không có thì dùng ảnh mặc định của site (site.ogImage).
+#}
+{% set relative_image_path = ogImage or site.ogImage %}
+
+{# 
+  Bước 2: Xây dựng URL tuyệt đối, hoàn chỉnh.
+  Ghép URL gốc (site.url) với đường dẫn tương đối đã được xử lý qua filter 'url'.
+  Dấu ~ là toán tử nối chuỗi trong Nunjucks.
+#}
+{% set absolute_og_image_url = site.url ~ (relative_image_path | url) %}
+{% set absolute_page_url = site.url ~ (page.url | url) %}
 
 
 {# ======================= OPEN GRAPH / FACEBOOK / ZALO ======================= #}
 <meta property="og:title" content="{{ title or site.title }}">
 <meta property="og:description" content="{{ description or site.description }}">
-<meta property="og:url" content="{{ site.url }}{{ page.url | url }}">
+<meta property="og:url" content="{{ absolute_page_url }}">
 <meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:locale" content="vi_VN">
 <meta property="og:type" content="website">
-{# Sử dụng ogImage của trang, nếu không có thì dùng của site #}
-<meta property="og:image" content="{{ site.url }}{{ (ogImage or site.ogImage) | url }}">
+<meta property="og:image" content="{{ absolute_og_image_url }}">
 
 
 {# ============================= TWITTER CARDS ============================= #}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ title or site.title }}">
 <meta name="twitter:description" content="{{ description or site.description }}">
-<meta name="twitter:image" content="{{ site.url }}{{ (ogImage or site.ogImage) | url }}">
-{# Nếu bạn có điền twitterUsername trong site.js, thẻ này sẽ được thêm vào #}
+<meta name="twitter:image" content="{{ absolute_og_image_url }}">
 {% if site.twitterUsername %}
 <meta name="twitter:creator" content="@{{ site.twitterUsername }}">
 {% endif %}
 
-<link rel="icon" type="image/png" href="{{ '/assets/images/nm.jpg' | url }}">
 
-<!-- Thư viện Font & Icon -->
+{# ============================= CÁC LINK CÒN LẠI ============================= #}
+<link rel="icon" type="image/png" href="{{ '/assets/images/nm.jpg' | url }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-<!-- File CSS chính của bạn -->
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
 
-<!-- ======================= GOOGLE ANALYTICS ======================= -->
-<!-- Google tag (gtag.js) -->
+{# Google Analytics và Google Search Console verification tag #}
+<meta name="google-site-verification" content="CHUỖI_XÁC_MINH_CỦA_BẠN" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H43S5DGTDF"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
