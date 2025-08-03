@@ -1,7 +1,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{# ============================= SEO CƠ BẢN ============================= #}
+{# Sử dụng title/description của trang, nếu không có thì dùng của site #}
 <title>{{ title or site.title }}</title>
 <meta name="description" content="{{ description or site.description }}">
+
+
+{# ======================= OPEN GRAPH / FACEBOOK / ZALO ======================= #}
+<meta property="og:title" content="{{ title or site.title }}">
+<meta property="og:description" content="{{ description or site.description }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url | url }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+{# Sử dụng ogImage của trang, nếu không có thì dùng của site #}
+<meta property="og:image" content="{{ site.url }}{{ (ogImage or site.ogImage) | url }}">
+
+
+{# ============================= TWITTER CARDS ============================= #}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title or site.title }}">
+<meta name="twitter:description" content="{{ description or site.description }}">
+<meta name="twitter:image" content="{{ site.url }}{{ (ogImage or site.ogImage) | url }}">
+{# Nếu bạn có điền twitterUsername trong site.js, thẻ này sẽ được thêm vào #}
+{% if site.twitterUsername %}
+<meta name="twitter:creator" content="@{{ site.twitterUsername }}">
+{% endif %}
 
 <link rel="icon" type="image/png" href="{{ '/assets/images/nm.jpg' | url }}">
 
