@@ -5,37 +5,42 @@
 <title>{{ title or site.title }}</title>
 <meta name="description" content="{{ description or site.description }}">
 
-{# ======================= LOGIC XỬ LÝ URL CHO MẠNG XÃ HỘI ======================= #}
+
+{# ======================= LOGIC XỬ LÝ URL - PHIÊN BẢN AN TOÀN ======================= #}
 {# 
-  Bước 1: Xác định đường dẫn tương đối của ảnh.
-  Sử dụng ảnh của trang (ogImage), nếu không có thì dùng ảnh mặc định của site (site.ogImage).
+  Bước 1: Định nghĩa URL gốc một cách tường minh. 
+  Thay thế nếu URL của bạn khác.
 #}
-{% set relative_image_path = ogImage or site.ogImage %}
+{% set base_url = "https://katavnnn.github.io" %}
 
 {# 
-  Bước 2: Xây dựng URL tuyệt đối, hoàn chỉnh.
-  Ghép URL gốc (site.url) với đường dẫn tương đối đã được xử lý qua filter 'url'.
-  Dấu ~ là toán tử nối chuỗi trong Nunjucks.
+  Bước 2: Xác định đường dẫn tương đối của ảnh.
+  Sử dụng ảnh của trang (ogImage), nếu không có thì dùng ảnh mặc định.
 #}
-{% set absolute_og_image_url = site.url ~ (relative_image_path | url) %}
-{% set absolute_page_url = site.url ~ (page.url | url) %}
+{% set image_path = ogImage or "/assets/images/og-image.png" %}
+
+{# 
+  Bước 3: Xây dựng các URL tuyệt đối hoàn chỉnh.
+#}
+{% set absolute_image_url = base_url ~ (image_path | url) %}
+{% set absolute_page_url = base_url ~ (page.url | url) %}
 
 
 {# ======================= OPEN GRAPH / FACEBOOK / ZALO ======================= #}
 <meta property="og:title" content="{{ title or site.title }}">
 <meta property="og:description" content="{{ description or site.description }}">
 <meta property="og:url" content="{{ absolute_page_url }}">
-<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:site_name" content="{{ title or site.title }}">
 <meta property="og:locale" content="vi_VN">
 <meta property="og:type" content="website">
-<meta property="og:image" content="{{ absolute_og_image_url }}">
+<meta property="og:image" content="{{ absolute_image_url }}">
 
 
 {# ============================= TWITTER CARDS ============================= #}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ title or site.title }}">
 <meta name="twitter:description" content="{{ description or site.description }}">
-<meta name="twitter:image" content="{{ absolute_og_image_url }}">
+<meta name="twitter:image" content="{{ absolute_image_url }}">
 {% if site.twitterUsername %}
 <meta name="twitter:creator" content="@{{ site.twitterUsername }}">
 {% endif %}
