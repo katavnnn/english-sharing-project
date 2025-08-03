@@ -1,15 +1,16 @@
-// file: .eleventy.js (phiên bản cuối cùng, chính xác)
 module.exports = function(eleventyConfig) {
   // Copy các thư mục JS và Images.
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/assets/images");
+  // Copy file robots.txt
   eleventyConfig.addPassthroughCopy("src/robots.txt");
 
   return {
-    // ================== THÊM VÀO ĐÂY ==================
-    // Thay "/english-sharing-project/" bằng tên repo của bạn nếu khác
+    // ================== QUAN TRỌNG NHẤT ==================
+    // Đây là nơi duy nhất chúng ta định nghĩa tên repo.
+    // Eleventy sẽ tự động sử dụng nó khi có filter | url
     pathPrefix: "/english-sharing-project/",
-    // ===============================================
+    // ===================================================
 
     dir: {
       input: "src",
